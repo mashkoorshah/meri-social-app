@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>میری سوشل ایپ — چیٹ اور کاروبار</title>
+<style>
+:root{--blue:#2563eb;--blue2:#6d5dfc;--bg:#f3f6fc;--ink:#172033;--muted:#6b7280;--line:#e5eaf3;--green:#0e9f6e;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#e5edff 0,transparent 30%),var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
+header{background:linear-gradient(110deg,#1648c8,#3778f6 60%,#765cf6);color:#fff;padding:16px;box-shadow:0 8px 28px #245be52b}
+.top{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{font-size:23px;font-weight:900;display:flex;align-items:center;gap:10px}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:14px;background:#ffffff25;border:1px solid #ffffff50}
+.top p{margin:4px 0 0;color:#eaf0ff;font-size:13px}.pill{background:#ffffff20;border:1px solid #ffffff45;padding:7px 11px;border-radius:999px;font-size:12px}
+main{max-width:1100px;margin:22px auto;padding:0 14px}.notice{padding:12px 14px;background:#fff8df;border:1px solid #f0dc9c;border-radius:14px;font-size:13px;line-height:1.8;margin-bottom:17px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{background:#fff;border:1px solid var(--line);color:#4b5563;padding:11px 16px;border-radius:12px;font-weight:700}.tab.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 6px 14px #2563eb30}
+.panel{background:var(--card);border:1px solid #e8edf6;border-radius:20px;padding:18px;box-shadow:0 10px 28px #2a4c9010}
+h2{font-size:20px;margin:0 0 14px;display:flex;align-items:center;gap:9px}h2:before{content:"";width:5px;height:22px;border-radius:5px;background:linear-gradient(var(--blue),var(--blue2))}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}input,textarea,select{width:100%;padding:11px 12px;border:1px solid #d7dfed;border-radius:11px;background:#fbfcff;font:inherit;outline:none}input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2563eb18}
+button{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 13px;cursor:pointer;transition:.15s}button:hover{filter:brightness(.97);transform:translateY(-1px)}.primary{background:linear-gradient(110deg,var(--blue),#5288ff);color:#fff}.soft{background:#edf3ff;color:#205bd4;border:1px solid #dce7ff}.green{background:#e7fbf2;color:#087a50;border:1px solid #c6f2df}.danger{background:#fff0ef;color:#b42318;border:1px solid #ffddda}.muted{color:var(--muted);font-size:13px;line-height:1.7}.hidden{display:none!important}
+.chat-layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:14px;min-height:500px}.sidebar{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fcfdff}.side-head{padding:13px;border-bottom:1px solid var(--line)}.side-head input{margin-top:8px}.contact{display:flex;align-items:center;gap:10px;padding:12px;border-bottom:1px solid #eef1f7;cursor:pointer}.contact:hover,.contact.selected{background:#eef4ff}.avatar{width:42px;height:42px;flex-shrink:0;border-radius:15px;background:linear-gradient(135deg,#dceaff,#e9e2ff);display:grid;place-items:center;color:#285bd8;font-weight:900}.contact-info{min-width:0;flex:1}.contact-info strong{display:block}.contact-info small{display:block;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chat-window{border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;min-height:500px;overflow:hidden}.chat-head{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;background:#fff}.chat-head .muted{margin-top:3px}.messages{padding:16px;flex:1;overflow:auto;background:linear-gradient(#f8faff,#f5f7fd);display:flex;flex-direction:column;gap:10px;max-height:410px}.bubble{max-width:82%;padding:10px 12px;border-radius:15px;line-height:1.65;font-size:14px;overflow-wrap:anywhere}.bubble.them{align-self:flex-start;background:#fff;border:1px solid #e7ebf3;border-top-right-radius:4px}.bubble.me{align-self:flex-end;background:#dfeaff;border:1px solid #c9dcff;border-top-left-radius:4px}.bubble time{display:block;font-size:10px;color:#6b7280;margin-top:4px}.sendbar{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid var(--line)}.sendbar input{flex:1;min-width:0}.empty{margin:auto;text-align:center;color:var(--muted);padding:20px;line-height:1.8}
+.business-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.biz{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff}.biz-icon{height:76px;border-radius:13px;background:linear-gradient(135deg,#e7efff,#f1eaff);display:grid;place-items:center;font-size:32px;margin-bottom:12px}.biz h3{margin:0 0 7px;font-size:17px}.biz .desc{font-size:13px;color:var(--muted);line-height:1.7;min-height:42px}.biz .price{font-weight:800;color:#145cc7;margin:10px 0}.biz .actions{display:flex;gap:7px;flex-wrap:wrap}.biz .actions button{flex:1}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wide{grid-column:1/-1}.profile-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}.profile-row .avatar{width:54px;height:54px;border-radius:18px;font-size:21px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px 15px}
+@media(max-width:720px){.chat-layout{grid-template-columns:1fr}.sidebar{max-height:240px;overflow:auto}.chat-window{min-height:430px}.form-grid{grid-template-columns:1fr}.wide{grid-column:auto}.brand{font-size:20px}.panel{padding:13px}}
+
+.videoPickBtn{display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:13px;background:#e8eaff;color:#343d92;font-weight:700;cursor:pointer;white-space:nowrap}
+.videoPickBtn:hover{filter:brightness(.97)}
+.message video,.bubble video{display:block;width:min(100%,360px);max-height:300px;border-radius:12px;margin-top:8px;background:#111}
+.hint{font-size:12px;color:#69738a;line-height:1.6;margin:8px 2px}
+
+.filePickBtn{display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:13px;background:#e7f5ef;color:#176947;font-weight:700;cursor:pointer;white-space:nowrap}
+.filePickBtn:hover{filter:brightness(.97)}
+.attachment-card{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px;margin-top:8px;border-radius:12px;background:#f1f4fb;color:#25304b;max-width:100%;overflow-wrap:anywhere}
+.attachment-card a{font-weight:700;color:#3949ab;text-decoration:none}
+.attachment-card small{display:block;color:#667085}
+</style>
+</head>
+<body>
+<header><div class="top"><div><div class="brand"><span class="logo">م</span> میری سوشل ایپ</div><p>گپ شپ کریں، لوگوں سے رابطہ کریں، کاروبار دکھائیں</p></div><span class="pill">چیٹ + کاروبار • ڈیمو ورژن</span></div></header>
+<main>
+<div class="notice"><strong>اہم وضاحت:</strong> یہ ایک قابلِ استعمال HTML نمونہ ہے۔ چیٹ اس براؤزر میں محفوظ رہتی ہے اور دوسرے لوگوں کو انٹرنیٹ پر نہیں پہنچتی۔ حقیقی WhatsApp جیسی چیٹنگ، اکاؤنٹس، SMS OTP، تصاویر کی اپ لوڈنگ اور کاروباری رابطوں کے لیے آن لائن سرور، ڈیٹا بیس اور محفوظ لاگ اِن سسٹم جوڑنا ہوگا۔</div>
+<div class="tabs">
+<button class="tab active" data-tab="chat">💬 گپ شپ / چیٹ</button>
+<button class="tab" data-tab="business">🛍️ کاروبار</button>
+<button class="tab" data-tab="addbusiness">➕ اپنا کاروبار شامل کریں</button>
+<button class="tab" data-tab="account">👤 اکاؤنٹ</button>
+</div>
+<section id="chat" class="tabpage">
+<div class="panel">
+<h2>گپ شپ کریں</h2>
+<p class="muted">کسی نمونے والے رابطے کو منتخب کریں اور پیغام بھیجیں۔ آپ خود سے مختلف نام اور نمبر بھی شامل کر سکتے ہیں۔</p>
+<div class="chat-layout">
+<div class="sidebar"><div class="side-head"><strong>رابطے</strong><input id="contactSearch" placeholder="رابطہ تلاش کریں…"><div style="display:flex;gap:7px;margin-top:8px"><input id="newContactName" placeholder="نام" style="min-width:0"><button id="addContact" class="soft">شامل کریں</button></div><label for="newContactPhone">فون نمبر (اختیاری)</label><input id="newContactPhone" placeholder="+92..." inputmode="tel"></div><div id="contacts"></div></div>
+<div class="chat-window"><div class="chat-head"><div class="avatar" id="chatAvatar">؟</div><div><strong id="chatName">رابطہ منتخب کریں</strong><div class="muted" id="chatPhone">یہ صرف مقامی ڈیمو ہے</div></div></div><div class="messages" id="messages"><div class="empty">بائیں طرف سے رابطہ منتخب کریں، پھر اپنا پیغام لکھیں۔</div></div><form id="sendForm" class="sendbar"><input id="messageInput" placeholder="پیغام لکھیں…" autocomplete="off" aria-label="پیغام">
+<label class="videoPickBtn" for="videoInput">🎥 ویڈیو</label><input id="videoInput" type="file" accept="video/*" hidden>
+  <label class="filePickBtn" for="fileInput" title="فائل منسلک کریں">📎 فائل</label>
+  <input id="fileInput" type="file" hidden>
+<button class="primary" type="submit">بھیجیں ➤</button></form></div>
+</div>
+</div>
+</section>
+<section id="business" class="tabpage hidden">
+<div class="panel"><h2>کاروبار اور خدمات</h2><p class="muted">یہ نمونے کی کاروباری فہرستیں ہیں۔ اصل کاروبار اور رابطے صارف خود شامل کریں گے۔</p><div class="business-grid" id="businessList"></div></div>
+</section>
+<section id="addbusiness" class="tabpage hidden">
+<div class="panel"><h2>اپنا کاروبار شامل کریں</h2><p class="muted">اپنی دکان، سروس یا پروڈکٹ کی تفصیل بھریں۔ یہ ابھی صرف اسی براؤزر میں محفوظ ہوگی۔</p>
+<form id="businessForm" class="form-grid">
+<div><label for="bizName">کاروبار کا نام</label><input id="bizName" required placeholder="مثلاً احمد الیکٹرونکس"></div>
+<div><label for="bizCategory">قسم</label><select id="bizCategory"><option>دکان</option><option>کھانا</option><option>موبائل / کمپیوٹر</option><option>کپڑے</option><option>خدمات</option><option>دیگر</option></select></div>
+<div><label for="bizPrice">قیمت یا ریٹ (اختیاری)</label><input id="bizPrice" placeholder="مثلاً 1500 روپے"></div>
+<div><label for="bizPhone">رابطہ نمبر (اختیاری)</label><input id="bizPhone" inputmode="tel" placeholder="+92..."></div>
+<div class="wide"><label for="bizDesc">کاروبار کی تفصیل</label><textarea id="bizDesc" rows="3" placeholder="آپ کیا چیز بیچتے یا کون سی خدمت دیتے ہیں؟"></textarea></div>
+<div class="wide"><button class="primary" type="submit">کاروبار محفوظ کریں</button></div>
+</form><div id="bizFormStatus" class="muted" role="status"></div>
+</div>
+</section>
+<section id="account" class="tabpage hidden">
+<div class="panel"><h2>اکاؤنٹ اور پروفائل</h2><div class="profile-row"><div class="avatar">م</div><div><strong>میری سوشل ایپ</strong><div class="muted">موجودہ HTML ڈیمو</div></div></div>
+<p>اس ڈیمو میں اکاؤنٹ کی اصل فون نمبر تصدیق شامل نہیں۔ حقیقی ورژن میں صارف فون نمبر درج کرے گا، SMS OTP سے تصدیق کرے گا، اور پھر اپنے اکاؤنٹ میں لاگ اِن ہوگا۔</p>
+<div class="notice">رازداری: اس نمونے میں پیغامات اور آپ کی شامل کردہ فہرستیں صرف اسی براؤزر کے مقامی ذخیرے میں رہتی ہیں۔ براؤزر کا ڈیٹا مٹانے سے وہ ختم ہو سکتا ہے۔ اس ڈیمو میں حساس یا نجی معلومات نہ ڈالیں۔</div>
+<button class="danger" id="clearDemo">اس براؤزر کا ڈیمو ڈیٹا مٹائیں</button><div id="accountStatus" class="muted" role="status" style="margin-top:10px"></div>
+</div>
+</section>
+</main>
+<footer>میری سوشل ایپ • تعلیمی پروٹوٹائپ — حقیقی پیغام رسانی کے لیے آن لائن بیک اینڈ ضروری ہے۔</footer>
+<script>
+const $=id=>document.getElementById(id);
+const keys={contacts:'mySocialContactsV2',msgs:'mySocialMessagesV2',biz:'mySocialBusinessesV2'};
+function load(k,def){try{const x=JSON.parse(localStorage.getItem(k));return x===null?def:x}catch(e){return def}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+let contacts=load(keys.contacts,[
+{id:'c1',name:'احمد',phone:'+92 300 0000001'},
+{id:'c2',name:'علی',phone:'+92 300 0000002'},
+{id:'c3',name:'فاطمہ',phone:'+92 300 0000003'}
+]);
+let messages=load(keys.msgs,{'c1':[{from:'them',text:'السلام علیکم! کیسے ہیں؟',time:'نمونہ'}],'c2':[{from:'them',text:'کاروبار کے بارے میں بات کرنی ہے۔',time:'نمونہ'}]});
+let businesses=load(keys.biz,[
+{id:'b1',name:'احمد الیکٹرونکس',category:'موبائل / کمپیوٹر',price:'مناسب ریٹ',phone:'',desc:'موبائل اور کمپیوٹر کے سامان کی نمونہ فہرست۔',icon:'📱'},
+{id:'b2',name:'گھر کا کھانا',category:'کھانا',price:'قیمت رابطے پر',phone:'',desc:'گھر کے بنے کھانے کی نمونہ کاروباری پوسٹ۔',icon:'🍲'},
+{id:'b3',name:'ڈیجیٹل خدمات',category:'خدمات',price:'500 روپے سے',phone:'',desc:'ٹائپنگ، دستاویزات اور ڈیزائن کی نمونہ خدمات۔',icon:'💻'}
+]);
+let selected='c1';
+function persist(){save(keys.contacts,contacts);save(keys.msgs,messages);save(keys.biz,businesses)}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderContacts(){
+ const q=$('contactSearch').value.trim().toLowerCase(),root=$('contacts');root.innerHTML='';
+ const filtered=contacts.filter(c=>(c.name+' '+c.phone).toLowerCase().includes(q));
+ if(!filtered.length){root.innerHTML='<div class="empty">کوئی رابطہ نہیں ملا۔</div>';return}
+ filtered.forEach(c=>{const el=document.createElement('div');el.className='contact'+(c.id===selected?' selected':'');el.innerHTML='<div class="avatar">'+escapeHtml(c.name.trim().charAt(0)||'?')+'</div><div class="contact-info"><strong>'+escapeHtml(c.name)+'</strong><small>'+escapeHtml((messages[c.id]||[]).slice(-1)[0]?.text||c.phone||'ابھی پیغام نہیں')+'</small></div>';el.onclick=()=>{selected=c.id;renderContacts();renderChat()};root.append(el)})
+}
+function renderChat(){
+ const c=contacts.find(x=>x.id===selected);if(!c){$('chatName').textContent='رابطہ منتخب کریں';$('chatPhone').textContent='';$('chatAvatar').textContent='؟';$('messages').innerHTML='<div class="empty">رابطہ منتخب کریں۔</div>';return}
+ $('chatName').textContent=c.name;$('chatPhone').textContent=c.phone||'فون نمبر شامل نہیں';$('chatAvatar').textContent=c.name.trim().charAt(0)||'?';
+ const root=$('messages'),arr=messages[c.id]||[];root.innerHTML='';
+ if(!arr.length)root.innerHTML='<div class="empty">ابھی کوئی پیغام نہیں۔ پہلا پیغام بھیجیں!</div>';
+ arr.forEach(m=>{const d=document.createElement('div');d.className='bubble '+(m.from==='me'?'me':'them');d.textContent=m.text;const time=document.createElement('time');time.textContent=m.time||'';d.append(time);root.append(d)});
+ root.scrollTop=root.scrollHeight
+}
+function renderBusinesses(){
+ const root=$('businessList');root.innerHTML='';
+ if(!businesses.length){root.innerHTML='<div class="empty">ابھی کوئی کاروبار شامل نہیں۔</div>';return}
+ businesses.forEach(b=>{const el=document.createElement('article');el.className='biz';el.innerHTML='<div class="biz-icon">'+escapeHtml(b.icon||'🛍️')+'</div><h3>'+escapeHtml(b.name)+'</h3><div class="muted">'+escapeHtml(b.category)+'</div><p class="desc">'+escapeHtml(b.desc||'')+'</p><div class="price">'+escapeHtml(b.price||'قیمت معلوم کرنے کے لیے رابطہ کریں')+'</div><div class="actions"><button class="soft" data-message="'+escapeHtml(b.id)+'">پیغام کریں</button><button class="green" data-contact="'+escapeHtml(b.id)+'">رابطہ نمبر</button></div>';
+ el.querySelector('[data-message]').onclick=()=>{let c=contacts.find(x=>x.phone&&b.phone&&x.phone===b.phone);if(!c){c={id:'c_'+Date.now(),name:b.name,phone:b.phone||''};contacts.push(c);messages[c.id]=[];persist()}selected=c.id;switchTab('chat');renderContacts();renderChat();$('messageInput').focus()};
+ el.querySelector('[data-contact]').onclick=()=>alert(b.phone?'رابطہ نمبر: '+b.phone:'اس کاروبار نے ابھی رابطہ نمبر شامل نہیں کیا۔');
+ root.append(el)})
+}
+function switchTab(id){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));document.querySelectorAll('.tabpage').forEach(p=>p.classList.toggle('hidden',p.id!==id))}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
+$('addContact').onclick=()=>{const name=$('newContactName').value.trim(),phone=$('newContactPhone').value.trim();if(!name){alert('براہِ کرم رابطے کا نام لکھیں۔');return}if(phone&&contacts.some(c=>c.phone===phone)){alert('یہ نمبر پہلے سے رابطوں میں ہے۔');return}const c={id:'c_'+Date.now(),name,phone};contacts.push(c);messages[c.id]=[];selected=c.id;persist();$('newContactName').value='';$('newContactPhone').value='';renderContacts();renderChat()};
+$('contactSearch').oninput=renderContacts;
+$('sendForm').onsubmit=e=>{e.preventDefault();const text=$('messageInput').value.trim();if(!text)return;if(!selected){alert('پہلے رابطہ منتخب کریں۔');return}messages[selected]=messages[selected]||[];messages[selected].push({from:'me',text,time:new Date().toLocaleTimeString('ur-PK',{hour:'2-digit',minute:'2-digit'})});persist();$('messageInput').value='';renderContacts();renderChat()};
+$('businessForm').onsubmit=e=>{e.preventDefault();const name=$('bizName').value.trim();if(!name)return;const cat=$('bizCategory').value;const icons={'دکان':'🏪','کھانا':'🍲','موبائل / کمپیوٹر':'📱','کپڑے':'👕','خدمات':'💼','دیگر':'🛍️'};businesses.unshift({id:'b_'+Date.now(),name,category:cat,price:$('bizPrice').value.trim(),phone:$('bizPhone').value.trim(),desc:$('bizDesc').value.trim(),icon:icons[cat]||'🛍️'});persist();$('businessForm').reset();$('bizFormStatus').textContent='کاروبار اس براؤزر میں محفوظ ہوگیا۔ یہ ابھی دوسرے لوگوں کو آن لائن نظر نہیں آتا۔';renderBusinesses();switchTab('business')};
+$('clearDemo').onclick=()=>{if(confirm('کیا آپ اس براؤزر کے پیغامات، رابطے اور کاروباری فہرستیں مٹانا چاہتے ہیں؟')){Object.values(keys).forEach(k=>localStorage.removeItem(k));contacts=[];messages={};businesses=[];selected=null;renderContacts();renderChat();renderBusinesses();$('accountStatus').textContent='ڈیمو ڈیٹا مٹا دیا گیا۔'}};
+persist();renderContacts();renderChat();renderBusinesses();
+
+// Local video demo: selecting a video adds a playable video bubble to the open chat.
+(function(){
+  const picker = document.getElementById('videoInput');
+  if (!picker) return;
+  picker.addEventListener('change', function(){
+    const file = this.files && this.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('video/')) {
+      alert('براہِ کرم ویڈیو فائل منتخب کریں۔'); this.value=''; return;
+    }
+    if (file.size > 40*1024*1024) {
+      alert('اس ڈیمو میں 40 MB تک کی ویڈیو منتخب کریں۔'); this.value=''; return;
+    }
+    const url = URL.createObjectURL(file);
+    const area = document.getElementById('chatMessages') || document.getElementById('messages') ||
+                 document.querySelector('.messages') || document.querySelector('#chat-body');
+    if (area) {
+      const bubble = document.createElement('div');
+      bubble.className = 'message sent bubble';
+      const title = document.createElement('div');
+      title.textContent = '🎥 ویڈیو: ' + file.name;
+      const player = document.createElement('video');
+      player.controls = true; player.preload = 'metadata'; player.src = url;
+      bubble.appendChild(title); bubble.appendChild(player); area.appendChild(bubble);
+      area.scrollTop = area.scrollHeight;
+    } else {
+      const player = document.createElement('video');
+      player.controls = true; player.src = url; player.style.cssText='width:100%;max-width:500px;display:block;margin:12px auto';
+      document.body.appendChild(player);
+    }
+    this.value='';
+  });
+})();
+
+
+// General file attachment demo: image, video, audio, documents, archives and other files.
+(function(){
+  const picker = document.getElementById('fileInput');
+  if (!picker) return;
+  picker.addEventListener('change', function(){
+    const file = this.files && this.files[0];
+    if (!file) return;
+
+    const area = document.getElementById('chatMessages') || document.getElementById('messages') ||
+                 document.querySelector('.messages') || document.querySelector('#chat-body');
+    const url = URL.createObjectURL(file);
+    const bubble = document.createElement('div');
+    bubble.className = 'message sent bubble';
+    const card = document.createElement('div');
+    card.className = 'attachment-card';
+
+    const icon = document.createElement('span');
+    const type = (file.type || '').toLowerCase();
+    if (type.startsWith('image/')) icon.textContent = '🖼️';
+    else if (type.startsWith('video/')) icon.textContent = '🎥';
+    else if (type.startsWith('audio/')) icon.textContent = '🎵';
+    else if (/\.pdf$/i.test(file.name)) icon.textContent = '📕';
+    else if (/\.(doc|docx|txt|rtf|odt)$/i.test(file.name)) icon.textContent = '📄';
+    else if (/\.(xls|xlsx|csv)$/i.test(file.name)) icon.textContent = '📊';
+    else if (/\.(zip|rar|7z|tar|gz)$/i.test(file.name)) icon.textContent = '🗜️';
+    else icon.textContent = '📎';
+    icon.style.fontSize = '25px';
+
+    const details = document.createElement('div');
+    details.style.flex = '1';
+    details.style.minWidth = '130px';
+    const name = document.createElement('div');
+    name.textContent = file.name;
+    name.style.fontWeight = '700';
+    const size = document.createElement('small');
+    size.textContent = file.size < 1024*1024
+      ? Math.max(1, Math.round(file.size/1024)) + ' KB'
+      : (file.size/(1024*1024)).toFixed(1) + ' MB';
+    details.appendChild(name);
+    details.appendChild(size);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = file.name;
+    link.textContent = 'ڈاؤن لوڈ';
+    card.appendChild(icon);
+    card.appendChild(details);
+    card.appendChild(link);
+    bubble.appendChild(card);
+
+    // Inline previews for image, video and audio.
+    if (type.startsWith('image/')) {
+      const preview = document.createElement('img');
+      preview.src = url;
+      preview.alt = file.name;
+      preview.style.cssText = 'display:block;max-width:100%;width:min(360px,100%);max-height:300px;object-fit:contain;border-radius:12px;margin-top:8px';
+      bubble.appendChild(preview);
+    } else if (type.startsWith('video/')) {
+      const preview = document.createElement('video');
+      preview.src = url; preview.controls = true;
+      preview.style.cssText = 'display:block;width:min(360px,100%);max-height:300px;border-radius:12px;margin-top:8px';
+      bubble.appendChild(preview);
+    } else if (type.startsWith('audio/')) {
+      const preview = document.createElement('audio');
+      preview.src = url; preview.controls = true;
+      preview.style.cssText = 'display:block;max-width:100%;margin-top:8px';
+      bubble.appendChild(preview);
+    }
+
+    if (area) {
+      area.appendChild(bubble);
+      area.scrollTop = area.scrollHeight;
+    } else {
+      document.body.appendChild(bubble);
+    }
+    this.value = '';
+  });
+})();
+
+</script>
+</body>
+</html>
+<p class="hint">ویڈیو اس ڈیمو میں صرف اسی براؤزر پر چلتی ہے۔ حقیقی طور پر دوسرے لوگوں کو بھیجنے کے لیے آن لائن سرور درکار ہوگا۔</p>
